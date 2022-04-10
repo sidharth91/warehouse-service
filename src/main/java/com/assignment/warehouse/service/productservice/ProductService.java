@@ -1,4 +1,4 @@
-package com.assignment.warehouse.service;
+package com.assignment.warehouse.service.productservice;
 
 import com.assignment.warehouse.model.Product;
 

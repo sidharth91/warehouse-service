@@ -7,7 +7,7 @@ import java.util.List;
  * @param <K> ID type of the object
  * @param <T> Object
  */
-public interface DataStore<K,T> {
+public interface WareHouseRepository<K,T> {
     public T save(T data);
     public List<T> findAll();
     public T find(K id);

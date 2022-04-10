@@ -1,8 +1,7 @@
-package com.assignment.warehouse.service;
+package com.assignment.warehouse.service.fileupload;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.springframework.stereotype.Component;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.multipart.MultipartFile;
 

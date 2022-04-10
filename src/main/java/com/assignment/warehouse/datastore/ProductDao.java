@@ -1,6 +1,5 @@
 package com.assignment.warehouse.datastore;
 
-import com.assignment.warehouse.model.Article;
 import com.assignment.warehouse.model.Product;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +14,7 @@ import java.util.stream.Collectors;
  */
 
 @Repository
-public class ProductStore implements DataStore<String,Product> {
+public class ProductDao implements WareHouseRepository<String,Product> {
     private Map<String, Product> productMap =new HashMap<>();
 
     @Override

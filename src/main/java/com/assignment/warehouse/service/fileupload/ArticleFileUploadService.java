@@ -1,6 +1,6 @@
-package com.assignment.warehouse.service;
+package com.assignment.warehouse.service.fileupload;
 
-import com.assignment.warehouse.datastore.ArticleStore;
+import com.assignment.warehouse.datastore.InventoryDao;
 import com.assignment.warehouse.dto.InventoryUploadDTO;
 import com.assignment.warehouse.model.Article;
 import com.assignment.warehouse.util.WareHouseUtility;
@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class ArticleFileUploadService extends BaseFileDeserializeService<InventoryUploadDTO,Article> {
 
     @Autowired
-    ArticleStore articleStore;
+    InventoryDao articleStore;
 
     /**
      *

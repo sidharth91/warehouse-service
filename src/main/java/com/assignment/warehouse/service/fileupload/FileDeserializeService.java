@@ -1,4 +1,4 @@
-package com.assignment.warehouse.service;
+package com.assignment.warehouse.service.fileupload;
 
 import org.springframework.web.multipart.MultipartFile;
 

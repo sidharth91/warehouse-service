@@ -1,7 +1,7 @@
 package com.assignment.warehouse.controller;
 
-import com.assignment.warehouse.service.ArticleFileUploadService;
-import com.assignment.warehouse.service.ProductFileUploadService;
+import com.assignment.warehouse.service.fileupload.ArticleFileUploadService;
+import com.assignment.warehouse.service.fileupload.ProductFileUploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +27,7 @@ public class FileUploadController {
         return ResponseEntity.ok("File uploaded successfully");
     }
 
-    @PostMapping("/v1/products/upload")
+    @PostMapping("/v1/products")
     public ResponseEntity<String> uploadProducts(@RequestParam("file") MultipartFile file)
     {
         prodFileUploadService.deserializeFile(file);
