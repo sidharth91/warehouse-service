@@ -5,6 +5,8 @@ import com.assignment.warehouse.datastore.ProductDao;
 import com.assignment.warehouse.exception.ProductUnavailableException;
 import com.assignment.warehouse.model.Article;
 import com.assignment.warehouse.model.Product;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +25,7 @@ public class ProductServiceImpl implements ProductService{
     @Autowired
     InventoryDao articleStore;
 
+    private static Logger logger = LogManager.getLogger();
 
     /**
      *
@@ -31,11 +34,13 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public List<Product> findAllAvailableProducts() {
+        logger.info("fetching all products from the datasource ");
         List<Product> result=new ArrayList<>();
         List<Article> articles = articleStore.findAll();
         List<Product> producs = productStore.findAll();
         Map<String, Article> articleMap = articles.stream().collect(
                 Collectors.toMap(Article::getId, Function.identity()));
+        logger.info("filtering all the product which is available with the inventory... ");
         result=producs.stream().filter(p->checkIfProductAvailable(p,articleMap)).collect(Collectors.toList());
         return result;
 
@@ -48,6 +53,7 @@ public class ProductServiceImpl implements ProductService{
      */
     @Override
     public Product sellProduct(String id) {
+        logger.info("Inside sell product methos ... ");
         List<Article> articles = articleStore.findAll();
         Product product = productStore.find(id);
         Map<String, Article> articleMap = articles.stream().collect(

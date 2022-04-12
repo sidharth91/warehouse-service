@@ -23,7 +23,7 @@ public class ProductController {
         return ResponseEntity.ok(productService.findAllAvailableProducts());
     }
 
-    @PostMapping("/v1/product/buy")
+    @PostMapping("/v1/product/sell")
     public ResponseEntity<Product> sellProduct(@RequestBody BuyProductDTO dto)
     {
         return ResponseEntity.ok(productService.sellProduct(dto.getId()));

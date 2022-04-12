@@ -3,9 +3,7 @@ package com.assignment.warehouse.datastore;
 import com.assignment.warehouse.model.Product;
 import org.springframework.stereotype.Repository;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -17,9 +15,16 @@ import java.util.stream.Collectors;
 public class ProductDao implements WareHouseRepository<String,Product> {
     private Map<String, Product> productMap =new HashMap<>();
 
+    /**
+     * this set is only used for to check unique name of the product
+     */
+    private Set<String> productName= new HashSet<>();
+
     @Override
     public Product save(Product data) {
-        productMap.put(data.getId(),data);
+        if(productName.add(data.getName())) {
+            productMap.put(data.getId(), data);
+        }
         return data;
     }
 
