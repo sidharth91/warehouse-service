@@ -29,7 +29,9 @@ Update the inventory by selling a product
 
 - Have not used DB to store data all the data has been stored in memory
 - have not considered atomocity and consistency of the update API
-
+- defined only one Exception which can grow to more
+- Added logger to service methods which can be more 
+- Not added logback.xml file to define the log format
 
 
 
